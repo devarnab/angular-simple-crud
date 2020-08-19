@@ -8,7 +8,6 @@ import { ModalConfig } from '../shared/modal/modal.component';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit, OnDestroy {
   userId: number;

@@ -5,7 +5,6 @@ import { LoaderService } from './components/shared/loader/loader.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   constructor(private loaderService: LoaderService, private router: Router) {
