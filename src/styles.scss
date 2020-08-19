@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
 main > .container {
-  padding: 60px 15px 0;
+  padding: 6rem 1.5rem 0;
 }
 
 .footer {
@@ -8,7 +16,6 @@ main > .container {
 }
 
 .footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
-
