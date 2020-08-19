@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user.interface';
 export class UsersComponent {
   @Input() users: User[];
 
-  userId(index: number, user: User) {
+  userId(index: number, user: User): number {
     return user.id;
   }
 }

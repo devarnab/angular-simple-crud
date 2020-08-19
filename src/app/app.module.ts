@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +11,9 @@ import { ListingComponent } from './components/posts/listing/listing.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
+import { HttpInterceptorInterceptor } from './interceptors/http-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ModalComponent } from './components/shared/modal/modal.component';
     AddEditComponent,
     ListingComponent,
     ModalComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,13 @@ import { ModalComponent } from './components/shared/modal/modal.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

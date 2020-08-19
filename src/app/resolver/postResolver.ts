@@ -4,7 +4,8 @@ import {
   Resolve,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { PostService } from '../services/post.service';
 
 @Injectable({ providedIn: 'root' })
@@ -15,6 +16,16 @@ export class PostResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-    return this.postService.getPosts(route.paramMap.get('id'), route.paramMap.get('postId'));
+    const userId = route.paramMap.get('id');
+    if (isNaN(+userId)) {
+      // Todo: Handle Error
+      return of(null);
+    }
+    return this.postService.getPosts(userId).pipe(
+      catchError((error) => {
+        // Todo: Handle Error
+        return of(null);
+      })
+    );
   }
 }

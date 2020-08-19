@@ -28,27 +28,27 @@ export class PostsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.posts = this.route.snapshot.data.posts;
     this.route.paramMap.subscribe(
-      (params) => (this.userId = parseInt(params.get('id')))
+      (params) => (this.userId = +params.get('id'))
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscriptions.forEach((subs) => subs.unsubscribe());
   }
 
-  onAddEditPost(postId: number) {
+  onAddEditPost(postId: number): void {
     if (postId) {
       this.selectedPost = this.getPostToEdit(postId);
     }
     this.showModal = true;
   }
 
-  onCloseModal() {
+  onCloseModal(): void {
     this.showModal = false;
     this.selectedPost = null;
   }
 
-  onSavePost(dataToSave: Partial<Post>) {
+  onSavePost(dataToSave: Partial<Post>): void {
     dataToSave = { ...dataToSave, userId: this.userId };
     this.subscriptions.push(
       this.postService.savePost(dataToSave).subscribe((savedData: Post) => {
@@ -62,7 +62,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     );
   }
 
-  onDeletePost(postId: number) {
+  onDeletePost(postId: number): void {
     this.selectedPostId = postId;
     this.showDeleteModal = true;
     this.deleteModalConfig = {
@@ -70,7 +70,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     };
   }
 
-  confirmDelete() {
+  confirmDelete(): void {
     this.showDeleteModal = false;
     this.subscriptions.push(
       this.postService.deletePost(this.selectedPostId).subscribe(
@@ -87,7 +87,7 @@ export class PostsComponent implements OnInit, OnDestroy {
     );
   }
 
-  private updatePosts(savedData: Post) {
+  private updatePosts(savedData: Post): void {
     this.posts = this.posts.map((post) => {
       if (post.id === savedData.id) {
         return savedData;
