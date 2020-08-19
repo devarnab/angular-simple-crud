@@ -1,0 +1,17 @@
+.list-group-flush > .list-group-item {
+  position: relative;
+  .action-btn {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  &:focus,
+  &:focus-within,
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.125);
+    .action-btn {
+      display: inline-block;
+    }
+  }
+}
