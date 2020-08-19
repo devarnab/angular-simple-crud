@@ -1,6 +1,6 @@
 <div class="card bg-light mb-3" *ngFor="let user of users;">
   <div class="card-body">
-    <h2 class="card-title">{{ user.name }}</h2>
+    <h3 class="card-title">{{ user.name }}</h3>
     <p class="card-text">{{ user.email }}</p>
     <a [routerLink]="['/users/' + user.id + '/posts']" class="card-link">
       View posts

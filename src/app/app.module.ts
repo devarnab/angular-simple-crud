@@ -4,8 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { UsersComponent } from './components/home/users/users.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
 import { AddEditComponent } from './components/posts/add-edit/add-edit.component';
 import { ListingComponent } from './components/posts/listing/listing.component';
 import { PostsComponent } from './components/posts/posts.component';
@@ -14,11 +14,12 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
 import { HttpInterceptorInterceptor } from './interceptors/http-interceptor.interceptor';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    DashboardComponent,
     HeaderComponent,
     FooterComponent,
     UsersComponent,
@@ -27,6 +28,7 @@ import { HttpInterceptorInterceptor } from './interceptors/http-interceptor.inte
     ListingComponent,
     ModalComponent,
     LoaderComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

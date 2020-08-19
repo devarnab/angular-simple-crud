@@ -1,10 +1,10 @@
-import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { UserResolver } from './resolver/userResolver';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PostResolver } from './resolver/postResolver';
-import { AddEditComponent } from './components/posts/add-edit/add-edit.component';
+import { UserResolver } from './resolver/userResolver';
 
 const routes: Routes = [
   {
@@ -17,30 +17,14 @@ const routes: Routes = [
     children: [
       {
         path: ':id/posts',
-        children: [
-          {
-            path: 'add',
-            component: AddEditComponent,
-          },
-          {
-            path: ':postId/edit',
-            component: AddEditComponent,
-            resolve: {
-              post: PostResolver
-            }
-          },
-          {
-            path: '',
-            component: PostsComponent,
-            resolve: {
-              posts: PostResolver,
-            },
-          },
-        ],
+        component: PostsComponent,
+        resolve: {
+          posts: PostResolver,
+        },
       },
       {
         path: '',
-        component: HomeComponent,
+        component: DashboardComponent,
         resolve: {
           users: UserResolver,
         },
@@ -49,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent,
+    component: PageNotFoundComponent,
   },
 ];
 
