@@ -1,0 +1,28 @@
+<div
+  class="modal fade show d-flex"
+  id="exampleModalLive"
+  tabindex="-1"
+  aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true"
+  role="dialog"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">
+          {{ config.title }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="onCloseModal()"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

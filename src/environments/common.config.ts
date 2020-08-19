@@ -1,3 +1,3 @@
 export const config = {
-  baseUrl: 'https://jsonplaceholder.typicode.com/',
+  baseUrl: 'https://jsonplaceholder.typicode.com',
 };

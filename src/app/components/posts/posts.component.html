@@ -1,0 +1,31 @@
+<h1>All Posts</h1>
+<small>{{ posts.length }} posts found!!</small>
+<app-listing
+  *ngIf="posts"
+  [posts]="posts"
+  (addEditPost)="onAddEditPost($event)"
+  (deletePost)="onDeletePost($event)"
+></app-listing>
+
+<app-add-edit
+  *ngIf="showModal"
+  [selectedPost]="selectedPost"
+  (closeModal)="onCloseModal()"
+  (savePost)="onSavePost($event)"
+></app-add-edit>
+
+<app-modal
+  *ngIf="showDeleteModal"
+  [config]="deleteModalConfig"
+  (closeModal)="showDeleteModal = false"
+>
+  <div class="modal-body">
+    <p>Are you sure to delete?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-info" (click)="confirmDelete()">Yes</button>
+    <button class="btn btn-success" (click)="showDeleteModal = false">
+      No
+    </button>
+  </div>
+</app-modal>
