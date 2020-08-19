@@ -13,7 +13,7 @@ export class ModalComponent {
   @Input() config: ModalConfig;
   @Output() closeModal = new EventEmitter();
 
-  onCloseModal() {
+  onCloseModal(): void {
     this.closeModal.emit();
   }
 }

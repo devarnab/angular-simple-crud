@@ -1,0 +1,45 @@
+.loader-container {
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color: #000000, $alpha: 0.2);
+  z-index: 3040;
+  div {
+    margin: auto;
+    z-index: 3045;
+    span {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 100%;
+      background-color: #007bff;
+      animation-name: loader;
+      animation-duration: 1.25s;
+      animation-iteration-count: infinite;
+      margin-right: 0.5rem;
+      &.second {
+        animation-delay: 0.25s;
+      }
+      &.third {
+        animation-delay: 0.5s;
+      }
+    }
+  }
+}
+@keyframes loader {
+  0% {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  50% {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  100% {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

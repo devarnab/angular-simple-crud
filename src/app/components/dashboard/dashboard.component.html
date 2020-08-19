@@ -1,0 +1,8 @@
+<h1>User list</h1>
+<small *ngIf="users?.length; else noUser">
+  {{ users.length }} users found!
+</small>
+<ng-template #noUser>
+  <p>No user found</p>
+</ng-template>
+<app-users *ngIf="users?.length" [users]="users"></app-users>

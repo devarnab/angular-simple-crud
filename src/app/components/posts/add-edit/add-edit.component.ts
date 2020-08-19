@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/models/post.interface';
-
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ModalConfig } from '../../shared/modal/modal.component';
 
 @Component({
@@ -30,7 +29,7 @@ export class AddEditComponent implements OnInit {
     }
   }
 
-  initForm() {
+  initForm(): void {
     this.postForm = this.formBuilder.group({
       title: [
         this.selectedPost && this.selectedPost.title,
@@ -40,13 +39,12 @@ export class AddEditComponent implements OnInit {
     });
   }
 
-  onCloseModal() {
+  onCloseModal(): void {
     this.closeModal.emit();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.postForm.markAllAsTouched();
-    console.log(this.postForm.valid);
     if (this.postForm.valid) {
       if (this.isEditMode) {
         this.dataToSave = { ...this.selectedPost, ...this.postForm.value };

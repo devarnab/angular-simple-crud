@@ -3,11 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user.interface';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
 })
-export class HomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   users: User[];
 
   constructor(private route: ActivatedRoute) {}

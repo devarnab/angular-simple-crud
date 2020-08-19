@@ -11,15 +11,15 @@ export class ListingComponent {
   @Output() addEditPost = new EventEmitter<string>();
   @Output() deletePost = new EventEmitter<string>();
 
-  postId(index: number, post: Post) {
+  postId(index: number, post: Post): number {
     return post.id;
   }
 
-  onAddEditPost(postId: string = null) {
+  onAddEditPost(postId: string = null): void {
     this.addEditPost.emit(postId);
   }
 
-  onDeletePost(postId: string = null) {
+  onDeletePost(postId: string = null): void {
     this.deletePost.emit(postId);
   }
 }

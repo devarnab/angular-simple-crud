@@ -1,5 +1,9 @@
-<h1>All Posts</h1>
-<small>{{ posts.length }} posts found!!</small>
+<h1>Post List</h1>
+<small *ngIf="posts?.length; else noPosts">
+  {{ posts.length }} posts found!!
+</small>
+<ng-template #noPosts><p>No posts found by this user</p></ng-template>
+
 <app-listing
   *ngIf="posts"
   [posts]="posts"
