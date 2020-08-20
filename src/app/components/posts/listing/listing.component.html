@@ -1,33 +1,28 @@
 <div class="d-flex align-items-end my-3">
-  <button
-    tabindex="0"
-    (click)="onAddEditPost()"
-    class="btn btn-success ml-auto"
-  >
+  <button tabindex="0" (click)="onAddEditPost()" class="btn btn-info ml-auto">
     Add Post
   </button>
 </div>
-<div class="card mb-4">
-  <ul class="list-group list-group-flush">
-    <li
-      tabindex="0"
-      *ngFor="let post of posts; trackBy: postId"
-      class="list-group-item"
-    >
-      <strong>{{ post.title }}</strong>
-      <p>{{ post.body }}</p>
-      <div class="action-btn">
-        <button
-          tabindex="0"
-          (click)="onAddEditPost(post.id)"
-          class="btn btn-warning mr-1"
-        >
-          <img src="../../../../assets/pencil.svg" alt="edit" />
-        </button>
-        <button tabindex="0" class="btn btn-warning" (click)="onDeletePost(post.id)">
-          <img src="../../../../assets/trash.svg" alt="delete" />
-        </button>
-      </div>
-    </li>
-  </ul>
+
+<div class="card mb-3" *ngFor="let post of posts; trackBy: postId">
+  <div class="card-body" tabindex="0">
+    <h4 class="card-title">{{ post.title }}</h4>
+    <p class="card-text">{{ post.body }}</p>
+    <div class="action-btn">
+      <button
+        tabindex="0"
+        (click)="onAddEditPost(post.id)"
+        class="btn btn-warning mr-1"
+      >
+        <img src="../../../../assets/pencil.svg" alt="edit" />
+      </button>
+      <button
+        tabindex="0"
+        class="btn btn-warning"
+        (click)="onDeletePost(post.id)"
+      >
+        <img src="../../../../assets/trash.svg" alt="delete" />
+      </button>
+    </div>
+  </div>
 </div>

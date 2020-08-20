@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   Resolve,
-  RouterStateSnapshot
+  RouterStateSnapshot,
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -18,7 +18,6 @@ export class UserResolver implements Resolve<any> {
   ): Observable<any> {
     return this.userService.getUsers().pipe(
       catchError((error) => {
-        // Todo: Handle Error
         return of(null);
       })
     );

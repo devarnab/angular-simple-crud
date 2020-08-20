@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from '../../models/post.interface';
+import { MessagesService } from '../shared/messages/messages.service';
+import { MessageType } from '../shared/messages/messages.utils';
 import { ModalConfig } from '../shared/modal/modal.component';
 
 @Component({
@@ -21,7 +23,8 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: PostService
+    private postService: PostService,
+    private messagesService: MessagesService
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +60,10 @@ export class PostsComponent implements OnInit, OnDestroy {
           this.posts = [savedData, ...this.posts];
         }
         this.onCloseModal();
+        this.messagesService.showMessage({
+          message: 'Data saved Successfully!!',
+          type: MessageType.Success,
+        });
       })
     );
   }
@@ -78,6 +85,10 @@ export class PostsComponent implements OnInit, OnDestroy {
             (post) => post.id !== this.selectedPostId
           );
           this.selectedPostId = null;
+          this.messagesService.showMessage({
+            message: 'Data deleted Successfully!!',
+            type: MessageType.Success,
+          });
         },
         () => {
           this.selectedPostId = null;

@@ -1,4 +1,4 @@
-.list-group-flush > .list-group-item {
+.card > .card-body {
   position: relative;
   .action-btn {
     display: none;
@@ -9,7 +9,7 @@
   &:focus,
   &:focus-within,
   &:hover {
-    background: rgba($color: #000000, $alpha: 0.125);
+    background: rgba($color: #000000, $alpha: 0.05);
     .action-btn {
       display: inline-block;
     }
