@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessagesService } from './messages.service';
 import { MessageConfig } from './messages.utils';
 
@@ -7,7 +7,7 @@ import { MessageConfig } from './messages.utils';
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss'],
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent {
   messages: MessageConfig[];
 
   constructor(private messagesService: MessagesService) {
@@ -19,6 +19,4 @@ export class MessagesComponent implements OnInit {
   closeMe(index: number): void {
     this.messagesService.removeMessage(index);
   }
-
-  ngOnInit(): void {}
 }

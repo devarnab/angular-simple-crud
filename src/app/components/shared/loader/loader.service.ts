@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class LoaderService {
   private loaderCounter = 0;
   showLoader$ = new BehaviorSubject(false);
-  constructor() {}
+
   set showLoader(value: boolean) {
     value ? this.loaderCounter++ : this.loaderCounter--;
     this.loaderCounter > 0

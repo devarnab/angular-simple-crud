@@ -34,7 +34,6 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-        // Todo: Handle Error
         messagesService.showMessage({
           message: error.message,
           type: MessageType.Danger,

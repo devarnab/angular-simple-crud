@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl,
-  AbstractControl,
 } from '@angular/forms';
 import { Post } from 'src/app/models/post.interface';
 import { ModalConfig } from '../../shared/modal/modal.component';
@@ -24,8 +23,6 @@ export class AddEditComponent implements OnInit {
   dataToSave: Partial<Post>;
   modalConfig: ModalConfig;
 
-  constructor(private formBuilder: FormBuilder) {}
-
   get title(): AbstractControl {
     return this.postForm.get('title');
   }
@@ -34,6 +31,8 @@ export class AddEditComponent implements OnInit {
     return this.postForm.get('body');
   }
 
+  constructor(private formBuilder: FormBuilder) {}
+
   ngOnInit(): void {
     this.modalConfig = { title: 'Add post' };
     this.initForm();
@@ -41,16 +40,6 @@ export class AddEditComponent implements OnInit {
       this.isEditMode = true;
       this.modalConfig = { title: 'Edit post' };
     }
-  }
-
-  initForm(): void {
-    this.postForm = this.formBuilder.group({
-      title: [
-        this.selectedPost && this.selectedPost.title,
-        Validators.required,
-      ],
-      body: [this.selectedPost && this.selectedPost.body, Validators.required],
-    });
   }
 
   onCloseModal(): void {
@@ -67,5 +56,15 @@ export class AddEditComponent implements OnInit {
       }
       this.savePost.emit(this.dataToSave);
     }
+  }
+
+  private initForm(): void {
+    this.postForm = this.formBuilder.group({
+      title: [
+        this.selectedPost && this.selectedPost.title,
+        Validators.required,
+      ],
+      body: [this.selectedPost && this.selectedPost.body, Validators.required],
+    });
   }
 }
