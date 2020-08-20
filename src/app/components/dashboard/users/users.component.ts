@@ -12,4 +12,8 @@ export class UsersComponent {
   userId(index: number, user: User): number {
     return user.id;
   }
+
+  getNum(value: string): number {
+    return +value;
+  }
 }

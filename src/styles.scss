@@ -50,3 +50,7 @@ main > .container {
     @include lrPad(1.5rem, 1.5rem);
   }
 }
+
+agm-map {
+  height: 150px;
+}

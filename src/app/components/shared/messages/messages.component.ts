@@ -17,7 +17,7 @@ export class MessagesComponent implements OnInit {
   }
 
   closeMe(index: number): void {
-    this.messagesService.removeMessage(index)
+    this.messagesService.removeMessage(index);
   }
 
   ngOnInit(): void {}

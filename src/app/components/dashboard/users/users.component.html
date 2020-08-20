@@ -1,9 +1,35 @@
-<div class="card bg-light mb-3" *ngFor="let user of users;">
-  <div class="card-body">
-    <h3 class="card-title">{{ user.name }}</h3>
-    <p class="card-text">{{ user.email }}</p>
-    <a [routerLink]="['/users/' + user.id + '/posts']" class="card-link">
-      View posts
-    </a>
+<div class="row mb-5">
+  <div class="col-sm-6" *ngFor="let user of users; trackBy: userId">
+    <div class="card bg-light mb-5">
+      <div class="card-body">
+        <h3 class="card-title mb-0">
+          {{ user.name }}
+        </h3>
+        <div class="mb-2">Username: {{ user.username }}</div>
+        <div>Email: {{ user.email }}</div>
+        <div class="mb-2">Phone: {{ user.phone }}</div>
+        <div>{{ user.company.name }}</div>
+        <div>
+          <small>{{ user.company.catchPhrase }}</small>
+        </div>
+        <div>
+          <small>{{ user.company.bs }}</small>
+        </div>
+
+        <!-- <agm-map
+          [latitude]="getNum(user.address?.geo?.lat)"
+          [longitude]="getNum(user.address?.geo?.lng)"
+        >
+          <agm-marker
+            [latitude]="getNum(user.address?.geo?.lat)"
+            [longitude]="getNum(user.address?.geo?.lng)"
+          ></agm-marker>
+        </agm-map> -->
+
+        <a [routerLink]="['/users/' + user.id + '/posts']" class="card-link">
+          View posts
+        </a>
+      </div>
+    </div>
   </div>
 </div>

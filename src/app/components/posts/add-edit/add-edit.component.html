@@ -9,10 +9,16 @@
           class="form-control"
           name="title"
           id="title"
-          aria-describedby="titleHelpId"
           placeholder="Add a title"
         />
-        <small id="titleHelpId" class="form-text text-muted">
+        <small
+          class="text-danger"
+          *ngIf="
+            title.invalid &&
+            (title.dirty || title.touched) &&
+            title.errors.required
+          "
+        >
           Title is required!
         </small>
       </div>
@@ -28,6 +34,14 @@
           rows="3"
           placeholder="Add a message"
         ></textarea>
+        <small
+          class="text-danger"
+          *ngIf="
+            body.invalid && (body.dirty || body.touched) && body.errors.required
+          "
+        >
+          Message is required!
+        </small>
       </div>
     </div>
     <div class="modal-footer">

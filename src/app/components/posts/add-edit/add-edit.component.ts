@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+  AbstractControl,
+} from '@angular/forms';
 import { Post } from 'src/app/models/post.interface';
 import { ModalConfig } from '../../shared/modal/modal.component';
 
@@ -19,6 +25,14 @@ export class AddEditComponent implements OnInit {
   modalConfig: ModalConfig;
 
   constructor(private formBuilder: FormBuilder) {}
+
+  get title(): AbstractControl {
+    return this.postForm.get('title');
+  }
+
+  get body(): AbstractControl {
+    return this.postForm.get('body');
+  }
 
   ngOnInit(): void {
     this.modalConfig = { title: 'Add post' };

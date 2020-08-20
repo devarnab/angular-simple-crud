@@ -2,17 +2,18 @@
   class="modal fade show d-flex"
   id="exampleModalLive"
   tabindex="-1"
-  aria-labelledby="exampleModalLiveLabel"
+  aria-labelledby="modalTitle"
   aria-modal="true"
   role="dialog"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" cdkTrapFocus>
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLiveLabel">
+        <h5 class="modal-title" id="modalTitle">
           {{ config.title }}
         </h5>
         <button
+          #closeBtn
           type="button"
           class="close"
           data-dismiss="modal"
