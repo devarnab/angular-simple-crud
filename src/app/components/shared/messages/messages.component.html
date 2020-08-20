@@ -1,0 +1,13 @@
+<div *ngIf="messages?.length" class="message rt">
+  <div
+    *ngFor="let message of messages; let index = index"
+    class="message-body shadow {{ message.type }}"
+  >
+    <p>
+      {{ message.message }}
+    </p>
+    <div class="message-close" (click)="closeMe(index)">
+      <span>X</span>
+    </div>
+  </div>
+</div>

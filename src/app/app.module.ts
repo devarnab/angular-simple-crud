@@ -6,15 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AddEditComponent } from './components/posts/add-edit/add-edit.component';
 import { ListingComponent } from './components/posts/listing/listing.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
+import { MessagesComponent } from './components/shared/messages/messages.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
 import { HttpInterceptorInterceptor } from './interceptors/http-interceptor.interceptor';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ModalComponent,
     LoaderComponent,
     PageNotFoundComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,

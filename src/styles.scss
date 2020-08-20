@@ -29,10 +29,6 @@ main > .container {
   padding: 6rem 1.5rem 0;
 }
 
-.footer {
-  background-color: #f5f5f5;
-}
-
 @mixin lrPad($pl, $pr) {
   padding-right: $pl !important;
   padding-left: $pr !important;
@@ -40,9 +36,17 @@ main > .container {
 .modal-header,
 .modal-body,
 .modal-footer {
+  .btn {
+    min-width: 9rem;
+  }
+
   @include lrPad(2rem, 2rem);
 }
 
-.footer > .container {
-  @include lrPad(1.5rem, 1.5rem);
+.footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  & > .container {
+    @include lrPad(1.5rem, 1.5rem);
+  }
 }

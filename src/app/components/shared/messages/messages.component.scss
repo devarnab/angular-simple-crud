@@ -1,0 +1,57 @@
+.message {
+  box-sizing: border-box;
+  position: fixed;
+  width: 40rem;
+  color: white;
+  z-index: 5000;
+  &.rt {
+    top: 5rem;
+    right: 2rem;
+  }
+  &.lt {
+    top: 5rem;
+    left: 2rem;
+  }
+  &-body {
+    display: flex;
+    background: rgba($color: #000000, $alpha: 0.7);
+    margin-bottom: 1rem;
+    &.success {
+      background: rgba($color: #28a745, $alpha: 1);
+      color: black;
+    }
+    &.info {
+      background: rgba($color: #17a2b8, $alpha: 1);
+      color: black;
+    }
+    &.warning {
+      background: rgba($color: #ffc107, $alpha: 1);
+      color: black;
+    }
+    &.danger {
+      background: rgba($color: #dc3545, $alpha: 1);
+      color: black;
+    }
+    p {
+      margin: 1rem 2rem;
+      word-break: break-all;
+    }
+  }
+  &-close {
+    display: flex;
+    margin-left: auto;
+    padding: 1rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    cursor: pointer;
+    // border-left: black 1px dotted;
+    color: white !important;
+    &:hover {
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+    span {
+      margin: auto;
+    }
+  }
+}
