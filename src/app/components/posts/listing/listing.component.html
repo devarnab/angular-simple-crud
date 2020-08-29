@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div class="card mb-3" *ngFor="let post of posts; trackBy: postId">
+<div class="card mb-3 shadow" *ngFor="let post of posts; trackBy: postId">
   <div class="card-body" tabindex="0">
     <h4 class="card-title">{{ post.title }}</h4>
     <p class="card-text">{{ post.body }}</p>

@@ -1,10 +1,11 @@
 <div class="row mb-5">
   <div class="col-sm-6" *ngFor="let user of users; trackBy: userId">
-    <div class="card bg-light mb-5">
+    <div class="card bg-light mb-5 shadow">
       <div class="card-body">
         <h3 class="card-title mb-0">
           {{ user.name }}
         </h3>
+        <hr aria-hidden="true"/>
         <div class="mb-2">Username: {{ user.username }}</div>
         <div>Email: {{ user.email }}</div>
         <div class="mb-2">Phone: {{ user.phone }}</div>
@@ -26,6 +27,7 @@
           ></agm-marker>
         </agm-map> -->
 
+        <hr aria-hidden="true"/>
         <a [routerLink]="['/users/' + user.id + '/posts']" class="card-link">
           View posts
         </a>
