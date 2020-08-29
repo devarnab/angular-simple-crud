@@ -47,6 +47,9 @@ Have not taken any modular approach as it is a really small application and it w
 - it keeps a counter into it so that if multiple action triggers loader then it will show loading animation till all are not resolved.
 - created a simple toast message component to show success, info, warning or error type messages.
 
+### Accessibility 
+- The application is fully accessible with keyboard only 
+
 ## Component Structure
 
 ```

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddEditComponent } from './add-edit.component';
 
 describe('AddEditComponent', () => {
@@ -8,9 +8,9 @@ describe('AddEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddEditComponent ]
-    })
-    .compileComponents();
+      declarations: [AddEditComponent],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
