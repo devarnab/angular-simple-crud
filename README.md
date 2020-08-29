@@ -35,17 +35,17 @@ Have not taken any modular approach as it is a really small application and it w
 - parent components are responsible for side effects
 
 ### Data Fetch
-- for home page data fetch I have used resolvers to fetch data before the navigation completes and when it will reach to page the data will be already present there for show
+- for home page data fetch I have used resolvers to provide data on navigation complete and the data will be already present there to show the user list
 - for edit dialogue show, didn't trigger any API call as I already have the details in parent component
-- for post data fetch again user the resolver to make the data available at the time of component loading
+- for post data fetch again used the resolver to make the data available at the time of component loading
 
 ### Error Handling
 - for HTTP error handling I have used an interceptor which also starts the loader when an API is being called and stops loader when API call results in success or failure. For failure it will show proper error message.
 
 ### Loader and Message Components
 - created a simple loader with CSS animation it will be triggered on route change and http call.
-- it keeps a counter into it so that if multiple action triggers loader then it will show loading until all are not resolves.
-- created a simple roaster type message component to show success, info, warning or error type messages.
+- it keeps a counter into it so that if multiple action triggers loader then it will show loading animation till all are not resolved.
+- created a simple toast message component to show success, info, warning or error type messages.
 
 ## Component Structure
 
@@ -128,6 +128,5 @@ This page is for listing the all posts of a particular user.
 
 ![Post List Page](./snips/notfound.jpg)
 
-<br/>
 
 **NOTE:** JSONPLACEHOLDER PROVIDES BUNCH OF FAKE APIS. SO, THE POSTS ARE NOT ACTUALLY GETTING ADDED OR EDITED OR DELETED INTO/FROM SERVER, ON REFRESH YOUR CHANGES WILL BE RESET
